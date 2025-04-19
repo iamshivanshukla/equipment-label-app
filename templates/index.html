@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipment Label</title>
+</head>
+<body>
+    <h1>Enter Equipment Label</h1>
+    <form method="POST" action="/">
+        <label for="equipment_label">Equipment Label:</label>
+        <input type="text" id="equipment_label" name="equipment_label" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if label %}
+    <h2>Results for Equipment Label: {{ label }}</h2>
+    {% if info %}
+        <ul>
+            <li>🔹 Name of Machine: {{ info[0] }}</li>
+            <li>🔹 Date of Purchase: {{ info[1] }}</li>
+            <li>🔹 Last Inspection Date: {{ info[2] }}</li>
+            <li>🔹 Last Service Date: {{ info[3] }}</li>
+        </ul>
+    {% else %}
+        <p>No machine found with this label.</p>
+    {% endif %}
+    {% endif %}
+</body>
+</html>
